@@ -1,6 +1,3 @@
-# https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/
-# https://hub.docker.com/r/npulidom/alpine-nginx-php/dockerfile
-# https://github.com/TrafeX/docker-php-nginx/blob/master/Dockerfile
 #
 # Build Command: docker build -t ozhank/jenkins-test2:latest .
 #
