@@ -1,5 +1,8 @@
 #
 # Build Command: docker build -t ozhank/jenkins-test2:latest .
+# Test  Command: docker run -p 80:8080 ozhank/jenkins-test2
+#
+# Original Docker File: https://github.com/TrafeX/docker-php-nginx
 #
 
 FROM alpine:3.9
