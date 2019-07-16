@@ -1,25 +1,26 @@
-node {
-    def app
-    def test_cont_id
+pipeline {
+    agent any
 
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+    stages {
 
-        checkout scm
-    }
-
-
-    stage('Build') {
-        /* Start Php Unit Tests */
-        sh 'cd www; ls; phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
-
-    }
-
-    post {
-        always {
-            junit "www/results/phpunit/phpunit.xml"
+        stage('Clone repository') {
+            /* Let's make sure we have the repository cloned to our workspace */
+    
+            checkout scm
         }
+    
+    
+        stage('Build') {
+            /* Start Php Unit Tests */
+            sh 'cd www; ls; phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
+    
+        }
+
+    #post {
+    #    always {
+    #        junit "www/results/phpunit/phpunit.xml"
+    #    }
+    #}
+
     }
-
-
 }
