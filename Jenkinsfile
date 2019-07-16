@@ -3,13 +3,6 @@ pipeline {
     agent any
 
     stages {
-/*
-        stage('Clone') {
-            steps {
-                checkout scm
-            }
-        }
-*/
 
         stage('Build') {
             steps {
@@ -24,10 +17,14 @@ pipeline {
                 * using `true` to allow the Pipeline to continue nonetheless
                 */
                 sh 'cd www; ls; phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
-                junit 'www/results/phpunit/phpunit.xml'
             }
         }
 
 
+    }
+    post {
+        always {
+            junit 'www/results/phpunit/phpunit.xml'
+        }
     }
 }
