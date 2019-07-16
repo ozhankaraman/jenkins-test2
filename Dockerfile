@@ -10,15 +10,18 @@ LABEL Maintainer="Ozhan Karaman <ozhan@zebrastack.com>"
 LABEL Description="Alpine Linux 3.9 + Nginx 1.14 + PHP-FPM 7.3"
 
 # Add Php 7.3 Repo
-ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-RUN echo "@php https://php.codecasts.rocks/v3.9/php-7.3" >> /etc/apk/repositories
+#ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+#RUN echo "@php https://php.codecasts.rocks/v3.9/php-7.3" >> /etc/apk/repositories
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 #Set Timezone
-ENV TZ=Europe/Istanbul
+ENV TZ=Europe/London
 
 RUN apk add --update tzdata && cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && apk del tzdata
 
 # Update Repo
+RUN apk --update add ca-certificates
 RUN apk update
 
 # Install packages
