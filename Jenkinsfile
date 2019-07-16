@@ -1,3 +1,4 @@
+/* https://jenkins.io/doc/book/pipeline/jenkinsfile/ */
 pipeline {
     agent any
 
