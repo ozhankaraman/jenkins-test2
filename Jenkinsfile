@@ -17,7 +17,7 @@ node {
 
     post {
         always {
-            junit "results/phpunit/phpunit.xml"
+            junit "www/results/phpunit/phpunit.xml"
         }
     }
 
