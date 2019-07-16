@@ -16,11 +16,5 @@ pipeline {
     
         }
 
-    #post {
-    #    always {
-    #        junit "www/results/phpunit/phpunit.xml"
-    #    }
-    #}
-
     }
 }
