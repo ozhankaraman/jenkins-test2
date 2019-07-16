@@ -8,4 +8,20 @@ node {
         checkout scm
     }
 
+
+    stage('Build') {
+        /* Start Php Unit Tests */
+        sh 'pwd'
+        sh 'ls'
+        sh 'phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
+
+    }
+
+    post {
+        always {
+            junit "results/phpunit/phpunit.xml"
+        }
+    }
+
+
 }
